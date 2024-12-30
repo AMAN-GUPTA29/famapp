@@ -82,5 +82,5 @@ The container supports the following card types:
 
 ## Point to note
 
-**As in the hc3 component we have 2 button remind later and dismiss now but we can't implement dismiss now as we can not change the backend data and everytime the app refresh that card will be loaded back so currently its functionality is same as remind later which will make the hc3 componet to load when the app is restarted or when refreshed also by swipe down (it was mention to only render the componet again on restart but i am rendering on refresh too cause there wont be use of refreshing in other case).**
+**As in the hc3 component we have 2 button remind later and dismiss now but we can't implement dismiss now as we can not change the backend data and everytime the app refresh that card will be loaded back so currently its functionality is same as remind later which will make the hc3 component to load when the app is restarted or when refreshed also by swipe down (it was mention to only render the component again on restart but i am rendering on refresh too cause there won't be use of refreshing in other case).**
 
