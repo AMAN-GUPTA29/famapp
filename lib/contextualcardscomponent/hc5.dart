@@ -18,19 +18,20 @@ class HC5 extends StatelessWidget {
 
     return Container(
       width: width,
-      height: height*0.2,
-
+      height: height * 0.2,
       decoration:
           BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10))),
       child: ListView.builder(
-        physics: hc5[0]["is_scrollable"] == false
-                    ? NeverScrollableScrollPhysics()
-                    : AlwaysScrollableScrollPhysics(),
+          physics: hc5[0]["is_scrollable"] == false
+              ? NeverScrollableScrollPhysics()
+              : AlwaysScrollableScrollPhysics(),
           itemCount: hc5[0]["cards"].length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (BuildContext context, int index) {
-            return Padding( //returning hc5 individual components
-              padding: EdgeInsets.symmetric(vertical: height * 0.015,horizontal: width*0.01),
+            return Padding(
+              //returning hc5 individual components
+              padding: EdgeInsets.symmetric(
+                  vertical: height * 0.015, horizontal: width * 0.01),
               child: Container(
                 clipBehavior: Clip.hardEdge,
                 width: width * 0.915,
@@ -40,7 +41,10 @@ class HC5 extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.symmetric(
                       horizontal: width * 0, vertical: height * 0),
-                  child: Image.network(hc5[0]["cards"][index]["bg_image"]["image_url"],fit: BoxFit.cover,),
+                  child: Image.network(
+                    hc5[0]["cards"][index]["bg_image"]["image_url"],
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             );

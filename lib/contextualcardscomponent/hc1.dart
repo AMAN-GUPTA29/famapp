@@ -19,20 +19,21 @@ class HC1 extends StatelessWidget {
     bool scroll = hc1[0]["is_scrollable"];
 
     //funtion for launching website
-     Future<void> _launchURL(String url) async {
-    final Uri uri = Uri.parse(url);
-    if (await canLaunchUrl(uri)) {
-      await launchUrl(uri, mode: LaunchMode.externalApplication);
-    } else {
-      throw 'Could not launch $url';
+    Future<void> _launchURL(String url) async {
+      final Uri uri = Uri.parse(url);
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(uri, mode: LaunchMode.externalApplication);
+      } else {
+        throw 'Could not launch $url';
+      }
     }
-  }
 
-    return Container(// for rendering hc1 component
+    return Container(
+      // for rendering hc1 component
       width: width,
       height: (hc1[0]["height"] + height * 0.03).toDouble(),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.all(Radius.circular(10))),
+      decoration:
+          BoxDecoration(borderRadius: BorderRadius.all(Radius.circular(10))),
       child: ListView.builder(
           physics: hc1[0]["is_scrollable"] == false
               ? NeverScrollableScrollPhysics()
@@ -41,17 +42,20 @@ class HC1 extends StatelessWidget {
           scrollDirection: Axis.horizontal,
           itemBuilder: (BuildContext context, int index) {
             // returning individual cards in hc5 component
-            return InkWell(//for opening the web link
-              onTap: (){
-                if(hc1[0]["cards"][index]["url"]!=null){
+            return InkWell(
+              //for opening the web link
+              onTap: () {
+                if (hc1[0]["cards"][index]["url"] != null) {
                   _launchURL(hc1[0]["cards"][index]["url"]);
                 }
-                },
+              },
               child: Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: width * 0.02, vertical: height * 0.01),
                 child: Container(
-                  width: scroll == true ? width * 0.9 : (width * 0.9/hc1[0]["cards"].length)-width*0.02,
+                  width: scroll == true
+                      ? width * 0.9
+                      : (width * 0.9 / hc1[0]["cards"].length) - width * 0.02,
                   decoration: BoxDecoration(
                       color: Color(int.parse(
                           "0xff${"${hc1[0]["cards"][index]["bg_color"]}".substring(1)}")),
@@ -69,22 +73,32 @@ class HC1 extends StatelessWidget {
                           width: width * 0.03,
                         ),
                         Padding(
-                          padding: EdgeInsets.symmetric(vertical: height * 0.012),
+                          padding:
+                              EdgeInsets.symmetric(vertical: height * 0.012),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(scroll==true?
-                                hc1[0]["cards"][index]["formatted_title"]
-                                    ["entities"][0]["text"]:"Small Card",
+                              Text(
+                                scroll == true
+                                    ? hc1[0]["cards"][index]["formatted_title"]
+                                        ["entities"][0]["text"]
+                                    : "Small Card",
                                 style: TextStyle(
-                                  fontSize: 12,
+                                    fontSize: 12,
                                     fontWeight: FontWeight.w600,
                                     color: Color(int.parse(
                                         "0xff${"${hc1[0]["cards"][index]["formatted_title"]["entities"][0]["color"]}".substring(1)}"))),
                               ),
-                              hc1[0]["cards"][index]["formatted_description"]==null?SizedBox():
-                              Text(hc1[0]["cards"][index]["formatted_description"]["entities"][0]["text"],style:TextStyle(fontSize: 12),)
+                              hc1[0]["cards"][index]["formatted_description"] ==
+                                      null
+                                  ? SizedBox()
+                                  : Text(
+                                      hc1[0]["cards"][index]
+                                              ["formatted_description"]
+                                          ["entities"][0]["text"],
+                                      style: TextStyle(fontSize: 12),
+                                    )
                             ],
                           ),
                         )

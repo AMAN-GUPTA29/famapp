@@ -8,7 +8,8 @@ class ZoomAnimation extends StatefulWidget {
   _ZoomAnimationState createState() => _ZoomAnimationState();
 }
 
-class _ZoomAnimationState extends State<ZoomAnimation> with SingleTickerProviderStateMixin {
+class _ZoomAnimationState extends State<ZoomAnimation>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
   late Animation<double> _animation;
 
@@ -21,7 +22,6 @@ class _ZoomAnimationState extends State<ZoomAnimation> with SingleTickerProvider
       vsync: this,
     );
 
-    
     _animation = Tween<double>(begin: 1.0, end: 1.5).animate(
       CurvedAnimation(
         parent: _controller,
@@ -29,7 +29,6 @@ class _ZoomAnimationState extends State<ZoomAnimation> with SingleTickerProvider
       ),
     );
 
-    
     _controller.repeat(reverse: true);
   }
 
@@ -59,10 +58,21 @@ class _ZoomAnimationState extends State<ZoomAnimation> with SingleTickerProvider
                   child: child,
                 );
               },
-              child: Container(height: height*0.07,child: Image.asset('assets/FamPay_Logo.png',)),
+              child: Container(
+                  height: height * 0.07,
+                  child: Image.asset(
+                    'assets/FamPay_Logo.png',
+                  )),
             ),
-            SizedBox(height: height*0.07,),
-            Text("Loading...",style: TextStyle(fontSize: 15,color: const Color.fromARGB(255, 111, 111, 111)),)
+            SizedBox(
+              height: height * 0.07,
+            ),
+            Text(
+              "Loading...",
+              style: TextStyle(
+                  fontSize: 15,
+                  color: const Color.fromARGB(255, 111, 111, 111)),
+            )
           ],
         ),
       ),

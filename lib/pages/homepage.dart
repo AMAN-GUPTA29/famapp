@@ -16,7 +16,7 @@ class Homepage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: Contextualcards(), //The Main Card Component asked to be made. 
+      body: Contextualcards(), //The Main Card Component asked to be made.
     );
   }
 }
