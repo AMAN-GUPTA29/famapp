@@ -74,7 +74,7 @@ The container supports the following card types:
 
 ## File Structure
 
-lib/<br>
+`lib/`<br>
 `├── main.dart                         # Entry point` <br>
 `├── contextualcardcomponent/          # Contains different components of contextualcard` <br>
 `├── controller/                       # Contains the API call controller` <br>
